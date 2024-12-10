@@ -1,0 +1,118 @@
+\documentclass[11pt,a4paper,twoside,openright]{book}
+
+% Essential packages
+\usepackage[utf8]{inputenc}         
+\usepackage{geometry}
+%TODO: Remove bindingoffset for digital publication
+\geometry{a4paper, bindingoffset=5mm, textwidth=170mm, textheight=255mm, marginratio={5:5, 8:7}}
+
+\usepackage{lmodern}                
+\usepackage[T1]{fontenc} % For proper rendering and hyphenation of words containing Latin characters         
+\usepackage[english]{babel}         
+\usepackage{csquotes}
+\usepackage{xcolor}
+
+% Mathematics and Algorithms
+\usepackage{amsmath, amssymb, amsthm} 
+\usepackage{mathtools}                
+\usepackage{algorithm}                
+\usepackage[noend]{algpseudocode}     
+
+% Figures, Tables, and Code Listings
+\usepackage{graphicx}                
+\usepackage{subcaption}              
+\usepackage{booktabs}                
+\usepackage{listings}
+% Basic config for listings
+\lstset{                             
+    basicstyle=\ttfamily\small,      
+    numbers=left,                    
+    numberstyle=\tiny,               
+    frame=single,                    
+    breaklines=true,                 
+    captionpos=b                     
+}
+
+% Hyperlinks and metadata
+%TODO: Insert your information here
+\usepackage{hyperref}
+\hypersetup{
+    pdfauthor={Max Mustermann},
+    pdftitle={My Thesis},
+    pdfsubject={Dissertation at Promotionszentrum Angewandte Informatik},
+    pdfkeywords={some, important, keywords},
+    colorlinks=true,
+    linkcolor=black,
+    citecolor=[HTML]{C72426},
+    urlcolor=[HTML]{6290C6},
+    filecolor=[HTML]{7F7F7F}
+}
+\usepackage[capitalize,nameinlink]{cleveref} % better cross-referencing
+
+ % Abbreviations
+\usepackage[acronym,automake,toc,hyperfirst=true]{glossaries}
+\include{content/00-abbrevs}
+\makeglossaries
+
+% Bibliography
+\usepackage[backend=biber, giveninits=true, style=alphabetic, maxbibnames=99]{biblatex} 
+\addbibresource{references.bib}
+
+% TODO: remove if not needed...
+\usepackage{blindtext}
+
+\begin{document}
+
+% Small Roman page numbers until ToC
+\pagenumbering{roman}
+
+\include{content/00-cmds}
+
+% Title page
+\include{content/00-cover}
+\cleardoublepage
+
+\include{content/00-acks}
+\cleardoublepage
+
+% ToC
+\pdfbookmark[1]{\contentsname}{toc}
+\tableofcontents
+\cleardoublepage
+
+
+\mainmatter
+% Back to arabic page numbers
+\pagenumbering{arabic}
+
+\include{content/01-intro}
+\include{content/02-theory}
+\cleardoublepage
+
+
+% Appendix
+\appendix
+\include{content/a1-supplemental}
+\cleardoublepage
+
+\phantomsection % For hyperref compatibility
+\printglossaries
+\cleardoublepage
+
+\phantomsection % For hyperref compatibility
+\addcontentsline{toc}{chapter}{List of Figures} % Add to ToC
+\listoffigures
+\cleardoublepage
+
+\phantomsection % For hyperref compatibility
+\addcontentsline{toc}{chapter}{List of Tables} % Add to ToC
+\listoftables
+\cleardoublepage
+
+% Bibliography
+\phantomsection % For hyperref compatibility
+\addcontentsline{toc}{chapter}{Bibliography} % Adds to TOC
+\printbibliography
+
+\end{document}
+

@@ -1,0 +1,128 @@
+\chapter{Introduction}
+\label{ch:intro}
+
+This document uses several abbreviations, including the \gls{gps}, \gls{api}, and \gls{ram}.
+
+The \gls{gps} is a satellite-based navigation system, the \gls{api} is a set of tools for building software applications, and \gls{ram} is a type of computer memory.
+
+
+\section{Citations}
+\label{sec:citations}
+Details about citations are in \cref{sec:citations}.
+This is a citation~\cite{wagner2024optimized}. 
+Here is a textual citation that shows the author's name: \textcite{wagner2024optimized}. 
+Here is an author-only citation: \citeauthor{wagner2024optimized} did something useful.
+You can also specify page numbers and extra info \cite[see][p.~5]{wagner2024optimized}. 
+
+This is an example of multiple citations \cite{Bocklet2014ErlangenCLPLarge, Bocklet2013AutomaticPhonemeAnalysis, Bocklet2009TowardsLanguageindependenta}.
+
+
+\section{URLs}
+\href{https://www.example.com}{Click here to open example.com}. You can change the \texttt{urlcolor} configuration in the preamble if you prefer a different URL color.
+
+\section{Tables}
+As shown in \cref{tab:example}, the data is easy to understand.
+\begin{table}[ht]
+    \centering
+    \begin{tabular}{lcr}
+        \toprule
+        \textbf{Column 1} & \textbf{Column 2} & \textbf{Column 3} \\ 
+        \midrule
+        Apple             & 10                & \$1.00            \\
+        Banana            & 5                 & \$0.50            \\
+        Cherry            & 20                & \$3.00            \\
+        \midrule
+        Total             & 35                & \$4.50            \\
+        \bottomrule
+    \end{tabular}
+    \caption{An example table using the \texttt{booktabs} package.}
+    \label{tab:example}
+\end{table}
+
+\section{Figures}
+The \texttt{subcaption} package provides support for adding subfigures or subtables within a figure or table environment. 
+This is particularly useful when you want to include multiple images, plots, or tables as part of a larger group, each with its own label and caption. 
+This is a reference to \cref{fig:mainfig}.
+\begin{figure}[ht]
+    \centering
+    % Subfigure 1
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{example-image-a}
+        \caption{First subfigure}
+        \label{fig:subfig1}
+    \end{subfigure}
+    % Subfigure 2
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{example-image-b}
+        \caption{Second subfigure}
+        \label{fig:subfig2}
+    \end{subfigure}
+    % Main caption
+    \caption{Main figure caption describing both subfigures.}
+    \label{fig:mainfig}
+\end{figure}
+
+\section{Listings}
+\Cref{lst:example} is a listing:
+\begin{lstlisting}[
+    language=Python,
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue}\bfseries, 
+    commentstyle=\color{green}\itshape, 
+    stringstyle=\color{red},            
+    numbers=left,
+    numberstyle=\tiny,
+    stepnumber=1,
+    frame=single,
+    caption={Example},
+    label={lst:example},
+    captionpos=b,
+    breaklines=true,
+    tabsize=2,
+    showstringspaces=false
+]
+import sympy as sp
+
+def approaching_zero(epsilon=1e-10):
+    """
+    Calculates the limit of 1/x as x approaches zero from the positive side.
+    """
+    x = sp.Symbol('x', real=True, positive=True)
+    limit_expr = 1 / x
+
+    # Calculate the limit
+    limit_result = sp.limit(limit_expr, x, epsilon)
+
+    if limit_result == sp.oo:
+        return "As x approaches zero, 1/x approaches... infinity! (wow!)"
+    elif limit_result == -sp.oo:
+        return "Wait, how did we get negative infinity?"
+    else:
+        return f"The limit is {limit_result}."
+
+print(approaching_zero())
+\end{lstlisting}
+
+\section{Algorithms}
+This is an algorithm: 
+
+\begin{algorithm}
+\caption{Approaching Zero}\label{alg:approaching_zero}
+\begin{algorithmic}[1]
+\Require Epsilon ($\epsilon$) $\gets 1 \times 10^{-10}$
+\State Define a symbol $x$ such that $x > 0$
+\State Define the expression $L \gets \frac{1}{x}$
+\State Compute the limit as $x \to \epsilon$: $\text{limit\_result} \gets \text{limit}(L, x, \epsilon)$
+\If {$\text{limit\_result} = \infty$}
+    \State Return "As $x$ approaches zero, $1/x$ approaches infinity!"
+\ElsIf {$\text{limit\_result} = -\infty$}
+    \State Return "Wait, how did we get negative infinity?"
+\Else
+    \State Return "The limit is $\text{limit\_result}$. That was unexpected!"
+\EndIf
+\end{algorithmic}
+\end{algorithm}
+
+
