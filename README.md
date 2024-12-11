@@ -17,14 +17,14 @@ To build the project, you need the following software installed:
 ## Build Instructions
 
 ### Default Build with `latexmk`
-`latexmk` is an automation tool for LaTeX projects. It determines the necessary sequence of commands (e.g., multiple runs of `pdflatex`, `biber`, `makeglossaries`) to produce a properly compiled document. It monitors dependencies and ensures everything is up-to-date.
+[Latexmk](https://ctan.org/pkg/latexmk) is an automation tool for LaTeX projects. It determines the necessary sequence of commands (e.g., multiple runs of `pdflatex`, `biber`, `makeglossaries`) to produce a properly compiled document. It also monitors dependencies and ensures everything is up-to-date.
 
 1. Open a terminal in the project directory.
-2. Choose one of the two commands:
-  - Run `make` to compile the document normally with `latexmk` terminating after the compilation is done.
-  - Run `make interactive` to enable interactive, continuous compilation with real-time preview (i.e. with `-pvc`).
+2. Choose one of the two commands to build with `latexmk`:
+   - Run `make` to compile the document with `latexmk` terminating after the process is completed.
+   - Run `make interactive` to enable interactive, continuous compilation with real-time preview (i.e. with `-pvc`).
 
-This will invoke `latexmk` to compile the `main.tex` file into `main.pdf`.
+Make will invoke `latexmk` to compile the `main.tex` file into `main.pdf`.
 The output PDF will be in the same directory as the `main.tex` file.
 
 #### Why `latexmk`?
