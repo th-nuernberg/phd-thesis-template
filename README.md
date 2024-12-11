@@ -70,6 +70,6 @@ This command cleans both the main project directory and the content folder where
 
 Ensure that `biber` and `makeglossaries` are installed and available in your system path.
 
-If using continuous preview mode with `latexmk` (i.e., `make interactive`), you can edit the LaTeX source files, and the PDF will automatically update.
+If you are using the continuous preview mode with `latexmk` (i.e., running `make interactive`), you can edit the LaTeX source files, and the PDF will automatically update.
 
 
